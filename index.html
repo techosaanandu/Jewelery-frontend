@@ -6,20 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HAREES JEWELLERY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" /> -->
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .carousel-item {
             min-width: calc(100% / 3);
         }
     </style>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .block {
+            display: block;
+        }
+    </style>
+    <style>
+        #gallery {
+            z-index: 10;
+            /* Adjust this value if needed */
+        }
+
+        /* Navigation link with even higher z-index */
+        
+    </style>
 </head>
 
 <body>
     <!-- header -->
-    <header class="bg-blue-900 text-yellow-300 p-3  ">
-        <div class="container bg-blue-900 mx-auto flex justify-between items-center py-4 px-6">
+    <header class="bg-indigo-950 text-yellow-300 p-3  ">
+        <div class="container bg-indigo-950 mx-auto flex justify-between items-center py-4 px-6">
             <div class="flex items-center h-30 w-30">
                 <img src="./assets/harees.png" alt="Malabar Gold & Diamonds" class="h-20 w-20 mr-3" />
                 <div>
@@ -31,7 +50,7 @@
             <div class="hidden md:flex items-center flex-1 justify-center">
                 <div class="relative text-yellow-300 mr-10">
                     <input type="search" name="search" placeholder="Search"
-                        class="bg-blue-900 text-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none border border-yellow-300 placeholder-yellow-300" />
+                        class="bg-indigo-950 text-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none border border-yellow-300 placeholder-yellow-300" />
                     <button type="submit" class="text-yellow-300 absolute right-0 top-0 mt-3 mr-4">
                         <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
@@ -55,7 +74,7 @@
                     </a>
                 </div>
             </div>
-            <button class="md:hidden flex items-center ml-4" onclick="toggleMobileMenu()">
+            <!-- <button class="md:hidden flex items-center ml-4" onclick="toggleMobileMenu()">
                 <button data-collapse-toggle="mobile-menu" type="button"
                     class="md:hidden ml-3 text-white  focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-lg inline-flex items-center justify-center"
                     aria-controls="mobile-menu-2" aria-expanded="false">
@@ -72,382 +91,644 @@
                             clip-rule="evenodd"></path>
                     </svg>
                 </button>
-            </button>
+            </button> -->
         </div>
     </header>
     <!-- nav bar -->
-    <nav class="border-gray-200 ">
-        <div class="container bg-yellow-300 p-10 mx-auto flex flex-wrap items-center justify-between min-w-full">
-            <div class=" hidden md:block w-full md:w-auto z-50" id="mobile-menu">
-                <ul class="ml-10 flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium overlay">
+    <nav class="bg-yellow-400 border-gray-200 dark:bg-gray-900">
+        <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
+            <div class="flex items-center md:order-2 space-x-1 md:space-x-2 rtl:space-x-reverse ml-auto">
+
+                <button data-collapse-toggle="mega-menu-icons" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-yellow-600 rounded-lg md:hidden hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="mega-menu-icons" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- First Mega Menu Section -->
+            <div id="mega-menu-icons-1"
+                class="items-center justify-between hidden w-full mx-10 md:flex md:w-auto md:order-1">
+                <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
                     <li>
-                        <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                            class="text-black hover:bg-yellow-400 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-pink-800 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">
+                        <button id="mega-menu-icons-dropdown-button-1" data-dropdown-toggle="mega-menu-icons-dropdown-1"
+                            class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-yellow-600 md:w-auto hover:bg-yellow-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
                             DIAMOND
-                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
+                            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
                             </svg>
                         </button>
-                        <!-- Dropdown menu -->
-                        <div id="dropdownNavbar1"
-                            class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
-                            <ul class="py-1" aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Ring</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Earring</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">NosePin</a>
-                                </li>
-                            </ul>
-                            <div class="py-1">
-                                <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Bangles</a>
+                        <div id="mega-menu-icons-dropdown-1"
+                            class="absolute z-20 grid hidden w-auto grid-cols-2 text-sm bg-yellow-400 border border-yellow-600 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                            <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Ring</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Earring
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Bangles</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Neclace
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Resources</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            NosePin
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar"
-                            class="text-black hover:bg-yellow-400 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-pink-800 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">
-                            GOLD
-                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <!-- Dropdown menu -->
-                        <div id="dropdownNavbar"
-                            class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
-                            <ul class="py-1" aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Bangles</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Ring</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Earrings</a>
-                                </li>
-                            </ul>
-                            <div class="py-1">
-                                <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">NosePin</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                            class="text-black hover:bg-yellow-400 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-pink-800 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">
-                            GEM STONE
-                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <!-- Dropdown menu -->
-                        <div id="dropdownNavbar"
-                            class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
-                            <ul class="py-1" aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Rings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Earring</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">NosePin</a>
-                                </li>
-                            </ul>
-                            <div class="py-1">
-                                <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Bangles</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                            class="text-black hover:bg-yellow-400 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-pink-800 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">
-                            UNCUT DIAMOND
-                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <!-- Dropdown menu -->
-                        <div id="dropdownNavbar"
-                            class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
-                            <ul class="py-1" aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Rings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Earrings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">NosePin</a>
-                                </li>
-                            </ul>
-                            <div class="py-1">
-                                <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Bangles</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button id="dropdownNavbarLink5" data-dropdown-toggle="dropdownNavbar"
-                            class="text-black hover:bg-yellow-400 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-pink-800 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">
-                            PLATINUM
-                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <!-- Dropdown menu -->
-                        <div id="dropdownNavbar5"
-                            class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
-                            <ul class="py-1" aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Rings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Earrings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">NosePin</a>
-                                </li>
-                            </ul>
-                            <div class="py-1">
-                                <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Bangles</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button id="dropdownNavbarLink6" data-dropdown-toggle="dropdownNavbar"
-                            class="text-black hover:bg-yellow-400 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-pink-800 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">
-                            GOLD COIN
-                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <!-- Dropdown menu -->
-                        <div id="dropdownNavbar6"
-                            class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
-                            <ul class="py-1" aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Dashboard</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Settings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Earnings</a>
-                                </li>
-                            </ul>
-                            <div class="py-1">
-                                <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Sign out</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button id="dropdownNavbarLink7" data-dropdown-toggle="dropdownNavbar"
-                            class="text-black hover:bg-yellow-400 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-pink-800 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">
-                            WATCHES
-                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <!-- Dropdown menu -->
-                        <div id="dropdownNavbar7"
-                            class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
-                            <ul class="py-1" aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Dashboard</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Settings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Earnings</a>
-                                </li>
-                            </ul>
-                            <div class="py-1">
-                                <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Sign out</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button id="dropdownNavbarLink8" data-dropdown-toggle="dropdownNavbar"
-                            class="text-black hover:bg-yellow-400 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-pink-800 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">
-                            GIFTS
-                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <!-- Dropdown menu -->
-                        <div id="dropdownNavbar8"
-                            class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
-                            <ul class="py-1" aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Dashboard</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Settings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Earnings</a>
-                                </li>
-                            </ul>
-                            <div class="py-1">
-                                <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Sign out</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button id="dropdownNavbarLink9" data-dropdown-toggle="dropdownNavbar"
-                            class="text-black hover:bg-yellow-400 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-pink-800 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">
-                            GIFT CARDS
-                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <!-- Dropdown menu -->
-                        <div id="dropdownNavbar9"
-                            class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
-                            <ul class="py-1" aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Dashboard</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Settings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Earnings</a>
-                                </li>
-                            </ul>
-                            <div class="py-1">
-                                <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Sign out</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button id="dropdownNavbarLink9" data-dropdown-toggle="dropdownNavbar"
-                            class="text-black hover:bg-yellow-400 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-pink-800 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">
-                            JEWELLERY
-                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <!-- Dropdown menu -->
-                        <div id="dropdownNavbar9"
-                            class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
-                            <ul class="py-1" aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Dashboard</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Settings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Earnings</a>
-                                </li>
-                            </ul>
-                            <div class="py-1">
-                                <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Sign out</a>
+                            <div class="p-4 text-gray-900 dark:text-white">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">About us</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Bracelets
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Library</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Bangles
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Resources</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                            <path
+                                                d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                            <path
+                                                d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                        </svg>
+                                            Rings
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </li>
                 </ul>
             </div>
+
+            <!-- Second Mega Menu Section -->
+            <div id="mega-menu-icons-2"
+                class="items-center justify-between hidden w-full mx-10 md:flex md:w-auto md:order-1">
+                <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
+                    <li>
+                        <button id="mega-menu-icons-dropdown-button-2" data-dropdown-toggle="mega-menu-icons-dropdown-2"
+                            class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-yellow-600 md:w-auto hover:bg-yellow-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                            BANGLES
+                            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div id="mega-menu-icons-dropdown-2"
+                            class="absolute z-20 grid hidden w-auto grid-cols-2 text-sm bg-yellow-400 border border-yellow-600 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                            <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Consulting</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Kangan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black  dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Development</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Oval
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Design</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Party wear
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="p-4 text-gray-900 dark:text-white">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Marketing</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                            <path
+                                                d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                            <path
+                                                d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                        </svg>
+                                            Cuff
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Support</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            For Kids
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- third menu link -->
+            <div id="mega-menu-icons-3"
+                class="items-center justify-between hidden w-full mx-10 md:flex md:w-auto md:order-1">
+                <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
+                    <li>
+                        <button id="mega-menu-icons-dropdown-button-3" data-dropdown-toggle="mega-menu-icons-dropdown-3"
+                            class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-yellow-600 md:w-auto hover:bg-yellow-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                            GOLD
+                            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div id="mega-menu-icons-dropdown-3"
+                            class="absolute z-20 grid hidden w-auto grid-cols-2 text-sm bg-yellow-400 border border-yellow-600 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                            <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Consulting</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Rings
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Development</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Bangles
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Design</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Earring
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="p-4 text-gray-900 dark:text-white">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Marketing</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Neclace
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Support</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                            <path
+                                                d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                            <path
+                                                d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                        </svg>
+                                            NosePin
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- forth menu link -->
+            <div id="mega-menu-icons-4"
+                class="items-center justify-between hidden w-full mx-10 md:flex md:w-auto md:order-1">
+                <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
+                    <li>
+                        <button id="mega-menu-icons-dropdown-button-4" data-dropdown-toggle="mega-menu-icons-dropdown-4"
+                            class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-yellow-600 md:w-auto hover:bg-yellow-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                            PLATINUM
+                            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div id="mega-menu-icons-dropdown-4"
+                            class="absolute z-20 grid hidden w-auto grid-cols-2 text-sm bg-yellow-400 border border-yellow-600 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                            <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Consulting</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Rings
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Development</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                            <path
+                                                d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                            <path
+                                                d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                        </svg>
+                                            Chains
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Design</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Bracelets
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="p-4 text-gray-900 dark:text-white">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Marketing</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Earring
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Support</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Collections
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- fifth menu link -->
+            <div id="mega-menu-icons-5"
+                class="items-center justify-between hidden w-full mx-10 md:flex md:w-auto md:order-1">
+                <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
+                    <li>
+                        <button id="mega-menu-icons-dropdown-button-5" data-dropdown-toggle="mega-menu-icons-dropdown-5"
+                            class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-yellow-600 md:w-auto hover:bg-yellow-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                            SILVER
+                            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div id="mega-menu-icons-dropdown-5"
+                            class="absolute z-20 grid hidden w-auto grid-cols-2 text-sm bg-yellow-400 border border-yellow-600 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                            <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Consulting</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                            <path
+                                                d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                            <path
+                                                d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                        </svg>
+                                            Rings
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Development</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                            <path
+                                                d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                            <path
+                                                d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                        </svg>
+                                            Bangles
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Design</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Pendant
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="p-4 text-gray-900 dark:text-white">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Marketing</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Collections
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="flex items-center text-black dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">Support</span>
+                                            <svg class="w-3 h-3 me-2 text-black dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                                                <path
+                                                    d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                                                <path
+                                                    d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                                            </svg>
+                                            Gifts
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
         </div>
     </nav>
 
 
     <!-- carousel1 -->
 
-    <div id="gallery" class="relative w-full " data-carousel="slide">
+    <div id="gallery" class="relative w-full" data-carousel="slide">
         <!-- Carousel wrapper -->
         <div class="relative h-56 overflow-hidden  md:h-96">
             <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <img src="https://static.malabargoldanddiamonds.com/media/bsimages/Caliesta-web1-14052024.jpg"
-                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="" />
+                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="" />
             </div>
             <!-- Item 2 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
                 <img src="https://static.malabargoldanddiamonds.com/media/bsimages/Diamond-Lightweight-web-in.jpg"
-                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="" />
+                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="" />
             </div>
             <!-- Item 3 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <img src="https://static.malabargoldanddiamonds.com/media/bsimages/Men_Gold_Kada_NTR_web_01032024.jpg"
-                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="" />
+                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="" />
             </div>
             <!-- Item 4 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <img src="https://static.malabargoldanddiamonds.com/media/bsimages/Gold-chain-banner-web1.jpg"
-                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="" />
+                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="" />
             </div>
             <!-- Item 5 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <img src="https://static.malabargoldanddiamonds.com/media/bsimages/Nuwa-web-17072024.jpg"
-                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="" />
+                    class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="" />
             </div>
         </div>
         <!-- Slider controls -->
@@ -481,38 +762,38 @@
 
     <!-- images row -->
 
-    <div class="p-5 mx-auto">
+    <!-- <div class="p-5 mx-auto">
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
             <div class="flex flex-col items-center justify-center">
-                <img class="w-full h-[230px] object-cover rounded-full border-4 border-yellow-300 border-double"
+                <img class="w-[200px] h-[200px] object-cover rounded-full border-4 border-yellow-300 border-double"
                     src="https://img.freepik.com/premium-photo/diamond-ring-with-diamond-diamonds-it_711323-196012.jpg?size=626&ext=jpg&ga=GA1.1.1525510322.1722501185&semt=ais_hybrid" alt="Ring" />
                 <h1 class="mt-2 text-center">Ring</h1>
             </div>
             <div class="flex flex-col items-center justify-center">
-                <img class="w-full h-[230px] object-cover rounded-full border-4 border-yellow-300 border-double"
+                <img class="w-[200px] h-[200px] object-cover rounded-full border-4 border-yellow-300 border-double"
                     src="./assets/jwel5.jpeg" alt="Anklet" />
                 <h1 class="mt-2 text-center">Anklet</h1>
             </div>
             <div class="flex flex-col items-center justify-center">
-                <img class="w-full h-[230px] object-cover rounded-full border-4 border-yellow-300 border-double"
+                <img class="w-[200px] h-[200px] object-cover rounded-full border-4 border-yellow-300 border-double"
                     src="https://images.unsplash.com/photo-1690175867343-2af70ea57537?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z29sZCUyMGJhbmdsZXN8ZW58MHx8MHx8fDA%3D"
                     alt="Bangle" />
                 <h1 class="mt-2 text-center">Bangle</h1>
             </div>
             <div class="flex flex-col items-center justify-center">
-                <img class="w-full h-[230px] object-cover rounded-full border-4 border-yellow-300 border-double"
+                <img class="w-[200px] h-[200px] object-cover rounded-full border-4 border-yellow-300 border-double"
                     src="https://plus.unsplash.com/premium_photo-1680181362119-5c9bf196805f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGVhcnJpbmd8ZW58MHx8MHx8fDA%3D"
                     alt="Earring" />
                 <h1 class="mt-2 text-center">Earring</h1>
             </div>
             <div class="flex flex-col items-center justify-center">
-                <img class="w-full h-[230px] object-cover rounded-full border-4 border-yellow-300 border-double"
+                <img class="w-[200px] h-[200px] object-cover rounded-full border-4 border-yellow-300 border-double"
                     src="https://img.freepik.com/premium-photo/diamond-ring-with-diamond-it_1028782-510026.jpg?size=626&ext=jpg"
                     alt="Platinum" />
                 <h1 class="mt-2 text-center">Platinum</h1>
             </div>
             <div class="flex flex-col items-center justify-center">
-                <img class="w-full h-[230px] object-cover rounded-full border-4 border-yellow-300 border-double"
+                <img class="w-[200px] h-[200px] object-cover rounded-full border-4 border-yellow-300 border-double sm:w-[200px] h-[200px]"
                     src="./assets/jwel3.jpeg" alt="GoldChain" />
                 <h1 class="mt-2 text-center">GoldChain</h1>
             </div>
@@ -521,9 +802,60 @@
                     src="./assets/jwel7.jpeg" alt="CoupleBand" />
                 <h1 class="mt-2 text-center">CoupleBand</h1>
             </div> -->
-            <!-- Add more images if needed -->
+
+    <!-- </div>
+    </div>  -->
+
+
+
+
+
+    <div class="p-5 mx-auto">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+            <div class="flex flex-col items-center justify-center">
+                <img class="w-[150px] object-cover rounded-full border-4 border-yellow-300 border-double"
+                    src="https://img.freepik.com/premium-photo/diamond-ring-with-diamond-diamonds-it_711323-196012.jpg?size=626&ext=jpg&ga=GA1.1.1525510322.1722501185&semt=ais_hybrid"
+                    alt="Ring" />
+                <h1 class="mt-2 text-center">Ring</h1>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <img class="w-[150px] object-cover rounded-full border-4 border-yellow-300 border-double"
+                    src="./assets/jwel5.jpeg" alt="Anklet" />
+                <h1 class="mt-2 text-center">Anklet</h1>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <img class="w-[150px] object-cover rounded-full border-4 border-yellow-300 border-double"
+                    src="https://images.unsplash.com/photo-1690175867343-2af70ea57537?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z29sZCUyMGJhbmdsZXN8ZW58MHx8MHx8fDA%3D"
+                    alt="Bangle" />
+                <h1 class="mt-2 text-center">Bangle</h1>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <img class="w-[150px] object-cover rounded-full border-4 border-yellow-300 border-double"
+                    src="https://plus.unsplash.com/premium_photo-1680181362119-5c9bf196805f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGVhcnJpbmd8ZW58MHx8MHx8fDA%3D"
+                    alt="Earring" />
+                <h1 class="mt-2 text-center">Earring</h1>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <img class="w-[150px] object-cover rounded-full border-4 border-yellow-300 border-double"
+                    src="https://img.freepik.com/premium-photo/diamond-ring-with-diamond-it_1028782-510026.jpg?size=626&ext=jpg"
+                    alt="Platinum" />
+                <h1 class="mt-2 text-center">Platinum</h1>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <img class="w-[150px] object-cover rounded-full border-4 border-yellow-300 border-double"
+                    src="./assets/jwel3.jpeg" alt="GoldChain" />
+                <h1 class="mt-2 text-center">GoldChain</h1>
+            </div>
+            <!-- Uncomment if needed
+            <div class="flex flex-col items-center justify-center">
+                <img class="w-full h-[200px] object-cover rounded-full border-4 border-yellow-300 border-double"
+                    src="./assets/jwel7.jpeg" alt="CoupleBand" />
+                <h1 class="mt-2 text-center">CoupleBand</h1>
+            </div>
+            -->
         </div>
     </div>
+
 
 
 
@@ -848,7 +1180,7 @@
     <!-- footer -->
 
 
-    <footer class="bg-green-500 dark:bg-gray-900">
+    <footer class="bg-gray-800 dark:bg-gray-900">
         <div class="mx-auto w-full max-w-screen">
             <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
                 <div>
@@ -973,14 +1305,47 @@
 
 
 
-
-
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Handle mega menu toggle
+            const dropdownButtons = document.querySelectorAll('[data-dropdown-toggle]');
+            dropdownButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const targetId = this.getAttribute('data-dropdown-toggle');
+                    const targetDropdown = document.getElementById(targetId);
+                    if (targetDropdown) {
+                        targetDropdown.classList.toggle('hidden');
+                    }
+                });
+            });
+
+            // Handle mobile menu toggle
+            const mobileMenuButton = document.querySelector('[data-collapse-toggle="mega-menu-icons"]');
+            const mobileMenu = document.getElementById('mega-menu-icons-1');
+            const mobileMenu2 = document.getElementById('mega-menu-icons-2');
+            const mobileMenu3 = document.getElementById('mega-menu-icons-3');
+            const mobileMenu4 = document.getElementById('mega-menu-icons-4');
+            const mobileMenu5 = document.getElementById('mega-menu-icons-5');
+
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function () {
+                    // Toggle visibility for both mega menu sections
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenu2.classList.toggle('hidden');
+                    mobileMenu3.classList.toggle('hidden');
+                    mobileMenu4.classList.toggle('hidden');
+                    mobileMenu5.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+
+    <!-- <script>
         function toggleMobileMenu() {
             const menu = document.getElementById("mobileMenu");
             menu.classList.toggle("hidden");
         }
-    </script>
+    </script> -->
     <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/daisyui@1.14.0/dist/daisyui.min.js"></script>
